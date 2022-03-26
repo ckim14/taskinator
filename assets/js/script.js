@@ -230,22 +230,29 @@ var saveTasks = function () {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
+
+
+
 var loadTasks = function () {
   // Gets task items from localStorage.
 
   if (tasks === null) {
     return false;
-  } else {
+  } 
+  
+  else {
     var Parse = JSON.parse(localStorage.getItem("tasks"));
     console.log(Parse);
 
     for (var i = 0; i < Parse.length; i++) {
       console.log(Parse[i]);
+      createTaskE1(Parse[i]);
+      taskIdCounter = Parse[i].id;
     }
-  }
-};
+}
+ 
 
-debugger;
+};
 
 // Iterates through a tasks array and creates task elements on the page from it.
 
